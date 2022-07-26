@@ -7,7 +7,7 @@
             <div class="col-sm-10 offset-sm-1">
                 <div class="card">
                     <div class="card-body">
-                        <h3><strong>{{ (__('Price')) }} dal 31 Luglio al 29 Agosto</strong></h3><hr>
+                        <h3><strong>{{ (__('Prices from 31st July to 29th August')) }} </strong></h3><hr>
                         <iframe src="{{ asset('images/docs/bassa.pdf') }}" width="100%" height="350px" /></iframe>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
             <div class="col-sm-10 offset-sm-1">
                 <div class="card">
                     <div class="card-body">
-                        <h3><strong>{{ (__('Price')) }} dal 30 Agosto alla chiusura</strong></h3><hr>
+                        <h3><strong>{{ (__('Prices from August 30 to closing')) }} </strong></h3><hr>
                         <iframe src="{{ asset('images/docs/alta.pdf') }}" width="100%" height="350px" /></iframe>
                     </div>
                 </div>

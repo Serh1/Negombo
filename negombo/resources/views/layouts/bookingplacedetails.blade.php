@@ -22,7 +22,7 @@
   <div class="card">
     <div class="card-header bg-success" id="price_style">
       <h3><strong>{{ __('Price') }}</strong></h3>
-      <a href="{{ route('user.prices') }}" style="color:white;" target="_blank">Guarda la tabella dei prezzi</a>
+      <a href="{{ route('user.prices') }}" style="color:white;" target="_blank">{{ __('Look at the price table') }}</a>
 
 
 
