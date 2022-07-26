@@ -38,6 +38,7 @@
 
 
 </head>
+<body>
 <nav class="navbar navbar-expand-lg" id="nav_bar_style">
     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/siteimages/logo-color.svg') }} "
                                                        height="55px" width="250px"></a>
