@@ -3,6 +3,10 @@
 
 
 @section('section')
+<?php
+//  $a=get_defined_vars();
+// dd($a);
+?>
 
   <div class="container-fluid">
 	</div>
@@ -35,7 +39,15 @@
                         <div class="col-sm-8 col-12">
                           {{-- <span id="tdatepik" class="t-check-in"></span> --}}
                           {{-- <span class="t-check-out"></span> --}}
+                           <?php
+                           $query = $_SERVER['QUERY_STRING'];
+                          $url=$query;
+                          $checkout=substr($url,-10);
+                          $maparray['checkout_date']=$checkout;
+                          // dump($maparray['checkout_date']);
+                         
 
+                            ?>
                           @php
                           // for logged in restictioons are removed
                           if(Auth::user()){
@@ -45,6 +57,9 @@
                           }else{
                             // for non-logged in user
                             $makestr = '+'.($maparray["set_admin"]->max_no_days)." day";
+                            
+                          //  dump($makestr);
+                         
                             $close_h = date('H', strtotime($maparray["set_admin"]->closing_time));
                             $close_hBig = date('H', strtotime($maparray["set_admin"]->closing_time)+60*60);
                             $close_m = date('i', strtotime($maparray["set_admin"]->closing_time));
@@ -58,23 +73,39 @@
                             }
                             //
                             $endday = date("Y-m-d", strtotime($makestr));
+                            // dump($maparray['checkin_date'],$maparray['checkout_date']); 
                           }
                             $place_hold = '<i class="fa fa-arrow-right" aria-hidden="true"></i>'." Check-in";
                           @endphp
                           <input placeholder="⇉ Check-in" class="cal_style" type="text" onfocus="(this.type='date')" id="t_start" name="t_start" min='{{ $startday }}' max='{{ $endday }}' required>
+                           <input placeholder="⇉ Check-Out" class="cal_style" type="text" onfocus="(this.type='date')" id="searchdate_numberofdays" name="t_end" min='{{ $startday }}' max='{{ $endday }}' required>
                           {{-- <input class="cal_style" placeholder="DD/MM/YYYY" type="date" id="t_start" name="t_start" min='{{ $startday }}' max='{{ $endday }}'> --}}
-                          <?php if(Auth::user()):?>
-                          <input id="searchdate_numberofdays" min="0" type="number" name="no_of_day" placeholder="{{ __('Number of days') }}: 1">
-                          <?php else: ?>
-                          <input id="searchdate_numberofdays" min="0" max="{{ $maparray["set_admin"]->max_no_days }}" type="number" name="no_of_day" placeholder="{{ __('Number of days') }}: 1">
-                          <?php endif ?>
+                          
+                          <?php
+                          //  if(Auth::user()):
+                           ?>
+                          {{-- <input id="searchdate_numberofdays" min="0" type="number" name="no_of_day" placeholder="{{ __('Number of days') }}: 1"> --}}
+                          <?php 
+                        // else: ?>
+                          {{-- <input id="searchdate_numberofdays" min="0" max="{{ $maparray["set_admin"]->max_no_days }}" type="number" name="no_of_day" placeholder="{{ __('Number of days') }}: 1"> --}}
+                          <?php
+                          //  endif
+                            ?>
+                          
                           @isset($maparray['err_msg'])
                             <span id="errormsg_txt" style="color:red;"> {{ __('You can book maximum') }} {{ $maparray["set_admin"]->max_no_days }} {{ __('days') }}.</span><br>
                           @endisset
                           <span id="errormsg_txt" style="color:red;display:none;"> {{ __('Arrival day is not selected') }}. </span><br>
                         </div>
+
+
+
+
+
                         <div class="col-sm-4">
-                          <button id="src_sm_btn" type="submit" class="btn btn-success">{{ __('Update Map') }}</button>
+                          <button id="src_sm_btn" type="submit" class="btn btn-success">{{ __('Update Map') }}
+                           
+                          </button>
                         </div>
                       </div>
               </form>
@@ -87,11 +118,11 @@
 	<div class="container-fluid" id="map_stype_whole">
 		<div class="row">
 			<div class="offset-sm-3 col-sm-8 offset-sm-1 col-12">
-        <center>
+       <center>
           @isset($maparray['checkin_date'])
             <span><strong>{{ __('Choose Your Place Here') }}</strong></span>
-          @endisset
-				<div class="containersmallmap" >
+           @endisset
+				   <div class="containersmallmap" >
   					<img id="baseMapimgStyle" src="{{ asset('images/maps/'.$maparray["map_name"].'.jpg') }}" alt="Workplace" usemap="#workmap" height="600px" width="800px">
             @if (isset($maparray['checkin_date']))
               @isset($maparray['places'])
@@ -103,6 +134,7 @@
                   @if ($place->status==0)
                     {{-- menually control colors for links for green --}}
                     <a href="{{ route('user.createbooking',  ['place_id' => $place->place_id, 'checkin' => $maparray['checkin_date'], 'checkout' => $maparray['checkout_date'], 'error_msg' => 0]) }}" class="mapmarkgrcls" id="{{ 'mapmarkgr'.$ind }}" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                   
                     <script>
                     if(window.screen.width<768){
                       document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
@@ -113,6 +145,7 @@
                   @if ($place->status== -1)
                     {{-- menually control colors for links --}}
                     <a onclick="return false;" href="" id="{{ 'mapmarkgy'.$ind }}" class="mapmarkgycls" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                    
                     <script>
                     if(window.screen.width<768){
                       document.getElementById("{{ 'mapmarkgy'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
@@ -123,6 +156,7 @@
                   @if ($place->status==2)
                     {{-- menually control colors for links --}}
                     <a onclick="return false;" href="" id="{{ 'mapmarkred'.$ind }}" class="mapmarkredcls" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+             
                     <script>
                     if(window.screen.width<768){
                       document.getElementById("{{ 'mapmarkred'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
@@ -153,6 +187,7 @@
                         document.getElementById("errormsg_txt").style.display = "block";
 
                     }
+                     
                   </script>
                 @else
                   <a onclick="checkinValidation()" href="#" class="mapmarkgrcls" id="{{ 'mapmarkgr'.$ind }}" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
@@ -167,15 +202,16 @@
                         document.getElementById("errormsg_txt").style.display = "block";
 
                     }
+                    
                   </script>
                 @endif
-
+                    
                 @php
                   $ind=$ind+1;
                 @endphp
               @endforeach
             @endif
-
+              
           </div>
 				<center>
 			</div>
