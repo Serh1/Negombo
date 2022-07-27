@@ -84,7 +84,7 @@
                       </tr>
                     @endisset
                     <tr>
-                      <td colspan="2"><span><strong>{{__('Prezzo Pagato')}}: </strong></span></td>
+                      <td colspan="2"><span><strong>{{__('Price to pay')}}: </strong></span></td>
                       <td colspan="2"><span>{{ $maparray['place']->price }} €</span></td>
                     </tr>
                     <tr>

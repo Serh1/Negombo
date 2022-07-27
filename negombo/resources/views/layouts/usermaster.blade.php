@@ -160,7 +160,7 @@
                     <li><a href="{{ route('user.index') }}"><i class="fa fa-angle-double-right"></i>{{ __('Home') }}</a>
                     </li>
                     {{-- <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>{{ __('Quick Booking') }}</a></li> --}}
-                    <li><a href="{{ route('user.prices') }}"><i class="fa fa-angle-double-right"></i>{{ __('Price') }}
+                    <li><a href="{{ route('user.prices') }}"><i class="fa fa-angle-double-right"></i>{{ __('Prices') }}
                         </a></li>
                     <li><a href="{{ route('user.contact') }}"><i
                                 class="fa fa-angle-double-right"></i>{{ __('Contact Us') }}</a></li>
@@ -174,7 +174,7 @@
                     <li><a href="{{ route('user.privacy') }}"><i class="fa fa-angle-double-right"></i>Privacy Policy</a>
                     </li>
                     {{-- <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Feedback</a></li> --}}
-                    <li><a href="https://www.negombo.it"><i class="fa fa-angle-double-right"></i>Official</a></li>
+                    <li><a href="https://www.negombo.it"><i class="fa fa-angle-double-right"></i>Official Website</a></li>
                 </ul>
             </div>
         </div>
