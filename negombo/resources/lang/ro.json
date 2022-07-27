@@ -36,8 +36,10 @@
     "Place Name": "Numele locului",
     "Area": "|Zonă",
     "Place Description": "Descrierea zonei",
-    "Price": "Preț",
+    "Prices": "Prețuri",
+    "Price to Pay": "Preț de plătit",
 
+    "Look at the price table": "Uită-te la tabelul de prețuri",
 
     "Adult": "Adult",
     "Baby": "Copil",
@@ -110,7 +112,7 @@
     "IMPORTANT": "IMPORTANT",
     "At the time of payment, enter Credit Card details, at the end of the operation you must remain on the negombo.it website until the booking confirmation is printed": "La momentul efectuării plății, introduceți detaliile cardului și nu părăsiți pagina negombo.it, până cănd confirmarea rezervării e printată",
     "Receipt of payment without booking confirmation from the negombo.it site does not entail the actual assignment of the seat": "Bonul fiscal fără confirmarea rezervării de pe site-ul negombo.it nu asigură alocarea scaunului",
-
+    "We inform you that having purchased the entrance ticket (s) to the Park with reservation, as a confirmation deposit, it will not be possible to accept requests for reimbursement, modification or cancellation": "Va informam ca achizitionand biletul(e) de intrare in Parc cu rezervare, ca avans de confirmare, nu se vor putea accepta cereri de rambursare, modificare sau anulare.",
 
 
     "If you have successfully paid, we need to complete your booking": "Dacă plata s-a realizat cu succes, trebui să-ți confirmăm rezervarea ",
