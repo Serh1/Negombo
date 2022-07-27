@@ -1,54 +1,16 @@
 
-<p align="center">
-Negombo - booking website
-</p>
-
-## About Working on Project
-
-- Clone the project in your htdocs folder;
-- Create a new file ".env";
-
-<div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/siteimages/logo-color.svg" alt="Logo" width="80" height="80">
+    <img src="images/siteimages/logo-color.svg" alt="Logo" width="400" height="400">
     
   </a>
 
   <h3 align="center">Negombo</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    Negombo is a website for booking your spot on the beach. 
   </p>
 </div>
 
@@ -73,10 +35,8 @@ Negombo - booking website
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -84,19 +44,18 @@ Negombo - booking website
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-
-
+TODO
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
-
+TODO
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [![React][React.js]][React-url]
 * [![Laravel][Laravel.com]][Laravel-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -110,32 +69,81 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install
+  ```
+  
+* composer
+  ```sh
+  composer install
   ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
+   git clone https://github.com/Serh1/negombo-master.git
+   ``` 
+2. Create new ".env" file inside the "negombo" directory.
+3. Copy and paste the bellow code configuration.
    ```sh
-   npm install
+    APP_NAME="Spiaggia"
+    APP_ENV=local
+    APP_KEY=base64:tadOvuTsXkCu3HVlW+yHoZXZFffyqK6nylTdsAtsSGg=
+    APP_DEBUG=t/ue
+    APP_URL=http://localhost
+    LOG_CHANNEL=stack
+    LOG_LEVEL=debug
+    DB_CONNECTION=mysql
+    DB_HOST=localhost
+    DB_PORT=3306
+    DB_DATABASE=DBNAME
+    DB_USERNAME=DBUSER
+    DB_PASSWORD=DBPASS
+    BROADCAST_DRIVER=log
+    CACHE_DRIVER=file
+    QUEUE_CONNECTION=sync
+    SESSION_DRIVER=file
+    SESSION_LIFETIME=120
+    MEMCACHED_HOST=127.0.0.1
+    REDIS_HOST=127.0.0.1
+    REDIS_PASSWORD=null
+    REDIS_PORT=6379
+    MAIL_MAILER=smtp
+    MAIL_HOST=digitall.it
+    MAIL_PORT=25
+    MAIL_USERNAME= no-replay@spiaggiasanmontano.it"
+    MAIL_PASSWORD="0*Wpb/30"
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS= no-replay@spiaggiasanmontano.it"
+    MAIL_FROM_NAME="${APP_NAME}"
+    AWS_ACCESS_KEY_ID=
+    AWS_SECRET_ACCESS_KEY=
+    AWS_DEFAULT_REGION=us-east-1
+    AWS_BUCKET=
+    PUSHER_APP_ID=
+    PUSHER_APP_KEY=
+    PUSHER_APP_SECRET=
+    PUSHER_APP_CLUSTER=mt1
+    MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+    MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+4. In xampp, create a new database and give it a proper name like "negombo".
+
+5. Make sure to modify DBNAME, DBUSER and DBPASS with your specific credentials.
+
+6. You need PHP 7.4.29 version for this project.
+
+7. Website is available at
+  ```sh
+  http://localhost/negombo-master/
+  ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
@@ -151,7 +159,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
-
+TODO
 - [x] Add Changelog
 - [x] Add back to top links
 - [ ] Add Additional Templates w/ Examples
@@ -161,24 +169,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Spanish
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
