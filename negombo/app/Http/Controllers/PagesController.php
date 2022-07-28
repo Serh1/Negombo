@@ -23,7 +23,7 @@ class PagesController extends Controller
     public function error404(){
         return view('error404');
     }
-	
+
 	public function booking404(){
       return view('booking404');
     }
@@ -42,8 +42,17 @@ class PagesController extends Controller
 
     public function userpricesView(){
       $map_coods = Bigmapmapping::orderBy('id')->get();
-      $maparray = array('map_coods' => $map_coods);
+      $set_admin = SettingAdmin::orderBy('id')->first();
+      $maparray = array('map_coods' => $map_coods,'set_admin' => $set_admin);
+
       return view('prices')->with('maparray', $maparray);
+    }
+
+    public function randompageView(){
+        $map_coods = Bigmapmapping::orderBy('id')->get();
+        $set_admin = SettingAdmin::orderBy('id')->first();
+        $maparray = array('map_coods' => $map_coods,'set_admin' => $set_admin);
+        return view('Temp')->with('maparray', $maparray);
     }
 
     public function index(){
@@ -82,22 +91,22 @@ class PagesController extends Controller
         }
 
 
-  
+
         if(!$booking->check_availability()){
           return redirect()->route('error.404');
         }
-  
+
         //Engaged the place for 15 min
         $temp_book = new TempBooking;
         $temp_book->makeEngaged($place_id, $checkin);
-  
+
         $map_coods = Bigmapmapping::orderBy('id')->get();
         $place = Place::where('place_id',$place_id)->first();
         $set_admin = SettingAdmin::orderBy('id')->first();
         $place->price = $set_admin->adult1_price;
         $maparray = array('map_coods' => $map_coods, 'place' => $place, 'checkin' => $checkin, 'checkout'=> $checkout, 'set_admin' => $set_admin, 'error_msg'=> $error_msg);
         return view('userpages.bookingplace')->with('maparray', $maparray);
-        
+
       }
 
 
@@ -120,7 +129,7 @@ class PagesController extends Controller
       }
 
       //if($set_admin->checkBookingTime($t, $booking->user_checkin)){
-		  
+
 		//  echo ($booking->user_checkin);
 		 // exit;
 
@@ -298,7 +307,7 @@ class PagesController extends Controller
         $booking->paid_ammount = $place->price;
         $booking->is_approved = 1;
       }
-		
+
 
       if($booking->check_availability()){
         if($request->user_payment_type =="Agreements")
@@ -379,12 +388,12 @@ class PagesController extends Controller
       $set_admin = SettingAdmin::orderBy('id')->first();
       $price_temp = $set_admin->calculatePrice($booking->user_checkin, $booking->user_checkout, $booking->user_no_of_guest, $booking->user_no_of_babies);
       $place->price =  $price_temp;
-		
 
-		
+
+
 
       if($promoCode->checkingValidity($promo, $place->map_name, $numberofdays) && ($promoCode->checkUsers($promo, $booking->user_no_of_guest, $booking->user_no_of_babies) && ($promoCode->checkPromoValid($promo)))){
-		
+
         $booking->user_promo = $promo;
 
        // $discount = $promoCode->discountCalculate($booking->user_promo, $place->price);
@@ -398,8 +407,8 @@ class PagesController extends Controller
       }else if(isset($request->promocode)){
         $booking->user_promo = "0";
       }
-		
-		
+
+
 
       if($booking->check_availability()){
         $map_coods = Bigmapmapping::orderBy('id')->get();
