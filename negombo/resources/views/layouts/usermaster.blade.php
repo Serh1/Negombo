@@ -106,9 +106,9 @@
 
 {{--            Not logged in:  --}}
             @guest
-            <li class="nav-item itmstyle">
-                <a class="nav-link " href="{{ url('/register') }}"><span>{{ __('Register') }}</span></a>
-            </li>
+{{--            <li class="nav-item itmstyle">--}}
+{{--                <a class="nav-link " href="{{ url('/register') }}"><span>{{ __('Register') }}</span></a>--}}
+{{--            </li>--}}
             <li class="nav-item itmstyle">
                 <a class="nav-link " href="{{ url('/login') }}"><span>{{ __('Log in') }}</span></a>
             </li>

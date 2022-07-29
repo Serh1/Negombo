@@ -78,7 +78,7 @@
                                   $place_hold = '<i class="fa fa-arrow-right" aria-hidden="true"></i>'." Check-in";
                             @endphp
                           <input placeholder="⇉ Check-in" class="cal_style" type="text" onfocus="(this.type='date')" id="t_start" name="t_start" min='{{ $startday }}' max='{{ $endday }}' required>
-                           <input placeholder="⇉ Check-Out" class="cal_style" type="text" onfocus="(this.type='date')" id="searchdate_numberofdays" name="t_end" min='{{ $startday }}' max='{{ $endday }}' required>
+                           <input placeholder="⇉ Check-Out" class="cal_style" type="text" onfocus="(this.type='date')" id="searchdate_numberofdays" name="t_end" min='{{ $maparray['checkin_date'] }}' max='{{ $endday }}' required>
                           {{-- <input class="cal_style" placeholder="DD/MM/YYYY" type="date" id="t_start" name="t_start" min='{{ $startday }}' max='{{ $endday }}'> --}}
 
                             <?php
@@ -119,6 +119,7 @@
         <div class="row">
             <div class="offset-sm-3 col-sm-8 offset-sm-1 col-12">
                 <center>
+{{--                    {{dd($maparray['checkin_date'])}}--}}
                     @isset($maparray['checkin_date'])
                         <span><strong>{{ __('Choose Your Place Here') }}</strong></span>
                     @endisset
