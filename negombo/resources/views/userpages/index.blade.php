@@ -34,6 +34,11 @@
   </div>
   <!-- base map end	 -->
   <div class="container padding20 center">
+     
+      <section> 
+      <h2><u>{{ __('Introduction Video') }}</u></h2>
+      <iframe src="https://drive.google.com/file/d/1-3g8B1FmCSMUUvM4rZ61HTaPFQeqZXMR/preview" width="600" height="300" allow="autoplay"></iframe>
+      </section>
       <h2><u>{{ __('Recommended Places') }}</u></h2>
       @include('layouts/recommendedplaces')
   </div>
