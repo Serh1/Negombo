@@ -38,6 +38,7 @@
 
 
 </head>
+<body>
 <nav class="navbar navbar-expand-lg" id="nav_bar_style">
     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/siteimages/logo-color.svg') }} "
                                                        height="55px" width="250px"></a>
@@ -81,12 +82,13 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    {{ Config::get('languages')[App::getLocale()] }}
+                    {{-- {{ Config::get('languages')[App::getLocale()] }} --}}
+                    <span>{{ Config::get('languages')[App::getLocale()] }}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     @foreach (Config::get('languages') as $lang => $language)
                         @if ($lang != App::getLocale())
-                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">  <span>{{ $language}}</span></a>
                         @endif
                     @endforeach
                 </div>
@@ -105,9 +107,9 @@
 
 {{--            Not logged in:  --}}
             @guest
-            <li class="nav-item itmstyle">
-                <a class="nav-link " href="{{ url('/register') }}"><span>{{ __('Register') }}</span></a>
-            </li>
+{{--            <li class="nav-item itmstyle">--}}
+{{--                <a class="nav-link " href="{{ url('/register') }}"><span>{{ __('Register') }}</span></a>--}}
+{{--            </li>--}}
             <li class="nav-item itmstyle">
                 <a class="nav-link " href="{{ url('/login') }}"><span>{{ __('Log in') }}</span></a>
             </li>
@@ -159,7 +161,7 @@
                     <li><a href="{{ route('user.index') }}"><i class="fa fa-angle-double-right"></i>{{ __('Home') }}</a>
                     </li>
                     {{-- <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>{{ __('Quick Booking') }}</a></li> --}}
-                    <li><a href="{{ route('user.prices') }}"><i class="fa fa-angle-double-right"></i>{{ __('Price') }}
+                    <li><a href="{{ route('user.prices') }}"><i class="fa fa-angle-double-right"></i>{{ __('Prices') }}
                         </a></li>
                     <li><a href="{{ route('user.contact') }}"><i
                                 class="fa fa-angle-double-right"></i>{{ __('Contact Us') }}</a></li>
@@ -173,7 +175,7 @@
                     <li><a href="{{ route('user.privacy') }}"><i class="fa fa-angle-double-right"></i>Privacy Policy</a>
                     </li>
                     {{-- <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Feedback</a></li> --}}
-                    <li><a href="https://www.negombo.it"><i class="fa fa-angle-double-right"></i>Official</a></li>
+                    <li><a href="https://www.negombo.it"><i class="fa fa-angle-double-right"></i>Official Website</a></li>
                 </ul>
             </div>
         </div>

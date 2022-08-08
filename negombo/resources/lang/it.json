@@ -32,12 +32,32 @@
     "Place Name": "Nome Del Luogo",
     "Area": "La Zona",
     "Place Description": "Descrizione Del Luogo",
-    "Price": "Prezzi",
+    "Prices": "Prezzi",
+    "Look at the price table": "Guarda la tabella dei prezzi",
+    "Price to Pay": "Prezzo Pagato",
+
+    "Prices from 31st July to 29th August": "Dal 31 Luglio al 29 Agosto",
+    "Prices from August 30 to closing": "Prezzi dal 30 agosto a chiusura",
     "Adult": "Adulto",
     "Baby": "Bambino",
+    "Babies": "Bambino",
     "Booking Reservation": "Prenotazione",
     "Personal Information": "Informazione Personale",
     "Full Name": "Nome e cognome",
+    "For Half day and Afternoon, online booking is not possible": "Per Mezza giornata e Pomeriggio non è possibile la prenotazione online",
+
+    "beach umbrella": "ombrellone",
+    "sunbed": "lettino",
+    "sunbeds": "lettini",
+    "deckchair": "sdraio",
+    "Height between 1 m and 1.40 m": "Altezza tra 1 mt ed 1.40 mt",
+
+    "All day": "Intera giornata",
+    "Half day": "Mezza giornata",
+    "Afternoon": "Pomeridiano",
+    "Equipment": "Attrezzatura",
+
+
     "Name and Surname of the person making the reservation and payment": "Nome e Cognome di chi effettua la prenotazione e il pagamento",
     "We'll never share your personal information with anyone else": "Non condivideremo mai le tue informazioni personali con nessun altro",
     "Surname": "Cognome",
@@ -85,6 +105,8 @@
     "Adults": "Adulti",
     "Pay": "Compra",
     "IMPORTANT": "IMPORTANTE",
+    "We inform you that having purchased the entrance ticket (s) to the Park with reservation, as a confirmation deposit, it will not be possible to accept requests for reimbursement, modification or cancellation": "Si informa che avendo acquistato il titolo/i di ingresso al Parco con prenotazione, come caparra confirmatoria, non sarà possibile accogliere richieste di rimborso, modifica o cancellazione.",
+
     "At the time of payment, enter Credit Card details, at the end of the operation you must remain on the negombo.it website until the booking confirmation is printed": "Al momento del pagamento inserire gli estremi Carta di credito, alla fine dell'operazione bisogna restare sul sito prenotazioni.negombo.it fino alla stampa della conferma di prenotazione",
     "Receipt of payment without booking confirmation from the negombo.it site does not entail the actual assignment of the seat": "La ricezione di avvenuto pagamento priva di conferma di prenotazione da parte del sito negombo.it non comporta l'effettiva assegnazione del posto",
     "If you have successfully paid, we need to complete your booking": "Se hai effettuato il pagamento con successo, dobbiamo completare la prenotazione",
