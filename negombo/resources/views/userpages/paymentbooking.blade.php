@@ -3,6 +3,7 @@
   <div class="container-fluid padding20">
     <div class="row">
       <div class="col-sm-1">
+
       </div>
       <div class="col-sm-4">
         @include('layouts.bookingplacedetails')
@@ -83,7 +84,7 @@
                       </tr>
                     @endisset
                     <tr>
-                      <td colspan="2"><span><strong>Prezzo Pagato: </strong></span></td>
+                      <td colspan="2"><span><strong>{{__('Price to pay')}}: </strong></span></td>
                       <td colspan="2"><span>{{ $maparray['place']->price }} €</span></td>
                     </tr>
                     <tr>
@@ -94,7 +95,7 @@
 
 
               @isset($maparray['booking']->user_promo)
-                
+
                   @isset($maparray['discount'])
                     @if ($maparray['discount'] != "0")
                       <span><strong>Prezzo Totale: </strong></span><span>{{ $maparray['discount'] }} {{ $maparray['place']->currency_type }}</span><br>

@@ -58,7 +58,6 @@
                             <label for="adult1_price" class="col-md-4 col-form-label text-md-right">{{ __('1 Adult Price') }}</label>
                             <div class="col-md-6">
                                 <input type="number" step="0.01" class="form-control" name="adult1_price" value={{ $set_admin->adult1_price }} required>
-
                             </div>
                         </div>
 

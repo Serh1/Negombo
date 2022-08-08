@@ -21,8 +21,8 @@
 <center>
   <div class="card">
     <div class="card-header bg-success" id="price_style">
-      <h3><strong>{{ __('Price') }}</strong></h3>
-      <a href="{{ route('user.prices') }}" style="color:white;" target="_blank">Guarda la tabella dei prezzi</a>
+      <h3><strong>{{ __('Prices') }}</strong></h3>
+      <a href="{{ route('user.prices') }}" style="color:white;" target="_blank">{{ __('Look at the price table') }}</a>
 
 
 
@@ -30,7 +30,7 @@
     <div class="card-body">
       <h6 class="text-justify"><strong>{{ __('IMPORTANT') }}: </strong>{{ __('At the time of payment, enter Credit Card details, at the end of the operation you must remain on the negombo.it website until the booking confirmation is printed') }}.</h6>
       <h6 class="text-justify">{{ __('Receipt of payment without booking confirmation from the negombo.it site does not entail the actual assignment of the seat') }}.</h6>
-      <h6 class="text-justify text-danger">Si informa che avendo acquistato il titolo/i di ingresso al Parco con prenotazione, come caparra confirmatoria, non sarà possibile accogliere richieste di rimborso, modifica o cancellazione.</h6>
+      <h6 class="text-justify text-danger">{{ __('We inform you that having purchased the entrance ticket (s) to the Park with reservation, as a confirmation deposit, it will not be possible to accept requests for reimbursement, modification or cancellation') }}.</h6>
     </div>
   </div><br>
 </center>
