@@ -28,6 +28,7 @@
     {{--        </div>--}}
     {{--    </div>--}}
 
+
     {{--    --}}{{--    Welcome section--}}
     {{--    <div class="container-fluid padding">--}}
     {{--        <div class="row welcome text-center">--}}
@@ -132,4 +133,5 @@
         <h2 id="heading_qt1"    ><b>{{ __('Recommended Places') }}</b></h2>
         @include('layouts/recommendedplaces')
     </div>
+
 @endsection
