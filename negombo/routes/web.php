@@ -33,6 +33,7 @@ Route::get('/regulations', 'PagesController@regulationsview')->name('user.regula
 
 Route::get('/privacy', 'PagesController@userPrivacyView')->name('user.privacy');
 Route::get('/prices', 'PagesController@userpricesView')->name('user.prices');
+Route::get('/Temp', 'PagesController@randompageView')->name('Temp');
 
 // error page
 Route::get('/404', 'PagesController@error404')->name('error.404');

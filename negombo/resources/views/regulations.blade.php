@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
               {{-- <iframe src="{{ asset('images/docs/regulations.pdf') }}" width="100%" height="1000px" /></iframe> --}}
-              <p align="center"><span style="color: #1f3864;"><span style="font-size: x-large;">PARCO TERMALE NEGOMBO</span></span></p>
+              <p align="center"><span style="color: #1f3864;"><span style="font-size: x-large;">{{__('NEGOMBO THERMAL PARK')}}</span></span></p>
               <p align="center"><span style="color: #1f3864;"><span style="font-size: large;">PIANO ANTI DIFFUSIONE COVID-19</span></span></p>
               <p align="center">&nbsp;</p>
               <p style="text-align: center;" align="center"><span style="color: #1f3864;"><span style="font-size: xx-small;"><strong>PROTOCOLLO DI SICUREZZA ANTI-DIFFUSIONE SARS-COV2</strong></span></span></p>
