@@ -12,6 +12,7 @@
               {{-- <iframe src="{{ asset('images/docs/regulations.pdf') }}" width="100%" height="1000px" /></iframe> --}}
               <p align="center"><span style="color: #1f3864;"><span style="font-size: x-large;">{{ __('THERMAL PARK NEGOMBO') }}</span></span></p>
               <p align="center"><span style="color: #1f3864;"><span style="font-size: large;">{{ __('ANTI DIFFUSION COVID-19 PLAN') }}</span></span></p>
+
               <p align="center">&nbsp;</p>
               <p style="text-align: center;" align="center"><span style="color: #1f3864;"><span style="font-size: xx-small;"><strong>{{__("SARS-COV2 ANTI-SPREAD SAFETY PROTOCOL")}}</strong></span></span></p>
               <p style="text-align: center;" align="center"><span style="color: #1f3864;"><span style="font-size: xx-small;"><strong>{{__("UNIT REGIONAL CRISIS UNDER DECREE P.G.R.C. N. 51 OF 20.03.20")}}</strong></span></span></p>
