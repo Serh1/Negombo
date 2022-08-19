@@ -66,7 +66,11 @@
 
 
     <div class="container-fluid">
-   git
+        <h2 id="heading_qt1">{{ __('Welcome to Negombo') }}</h2>
+        <video autoplay loop muted playsinline class="back-video">
+            <source src="images/NEGOMBO ULTIMO.mp4" type="video/mp4">
+        </video>
+    </div>
     <!-- base map	 -->
     <div class="container-fluid">
         <h2 id="heading_qt1">{{ __('Book your favorite place on the map') }}</h2>
