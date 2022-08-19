@@ -39,7 +39,8 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg" id="nav_bar_style">
+<nav class="navbar navbar-expand-lg sticky-top" id="nav_bar_style">
+    <div class="container">
     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/siteimages/logo-color.svg') }} "
                                                        height="55px" width="250px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -110,20 +111,20 @@
 {{--            <li class="nav-item itmstyle">--}}
 {{--                <a class="nav-link " href="{{ url('/register') }}"><span>{{ __('Register') }}</span></a>--}}
 {{--            </li>--}}
-            <li class="nav-item itmstyle">
-                <a class="nav-link " href="{{ url('/login') }}"><span>{{ __('Log in') }}</span></a>
-            </li>
+{{--            <li class="nav-item itmstyle">--}}
+{{--                <a class="nav-link " href="{{ url('/login') }}"><span>{{ __('Log in') }}</span></a>--}}
+{{--            </li>--}}
             @endguest
 
 
             @auth
-                <li class="nav-item itmstyle">
-                    <a id="username_navbar_style" class="nav-link dropdown-toggle" href="#" role="button"
+                <li class="nav-item dropdown itmstyle ">
+                    <a id="username_navbar_style" class="nav-link dropdown-toggle" href="#"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
@@ -137,6 +138,7 @@
                 </li>
             @endauth
         </ul>
+    </div>
     </div>
 </nav>
 

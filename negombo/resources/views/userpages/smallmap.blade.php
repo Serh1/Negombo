@@ -20,30 +20,37 @@
                     <div class="card-body" style="font-size:12px;">
                         <li>{{ __('Choose the day you wish to book') }}</li>
                         <li>{{ __('Update the map to see availability') }}</li>
-                        <li>{{ __('Select your favorite seat') }}</li><br>
-                        <p style="text-align:justify;">{{ __('The white umbrellas are not bookable because they are intentionally left free for access to guests arriving at Negombo without having booked') }}.</p>
+                        <li>{{ __('Select your favorite seat') }}</li>
+                        <br>
+                        <p style="text-align:justify;">{{ __('The white umbrellas are not bookable because they are intentionally left free for access to guests arriving at Negombo without having booked') }}
+                            .</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-8 offset-sm-1">
-                <h2 id ="heading_qt">{{ __('Book your favorite place on the map') }}</h2>
+
+
+                <h2 id="heading_qt">{{ __('Book your favorite place on the map') }}</h2>
                 <form action="" method="GET">
                     {{ csrf_field() }}
                     <br>
                     <noscript>
-                        <li class="text-warning"><span>{{ __('Javascript is not enabled, it is necessary to enable JavaScript') }}.</span></li>
-                        <li ><span><a target="_blank" href="https://www.enable-javascript.com/it/">{{ __('Instructions how to enable JavaScript in your web browser') }}.</a></span></li><br><br>
+                        <li class="text-warning"><span>{{ __('Javascript is not enabled, it is necessary to enable JavaScript') }}.</span>
+                        </li>
+                        <li><span><a target="_blank" href="https://www.enable-javascript.com/it/">{{ __('Instructions how to enable JavaScript in your web browser') }}.</a></span>
+                        </li>
+                        <br><br>
                     </noscript>
                     <span><strong>{{ __('Arrival day') }}:</strong></span>
-                      <div class="row">
+                    <div class="row">
                         <div class="col-sm-8 col-12">
-                          {{-- <span id="tdatepik" class="t-check-in"></span> --}}
+                            {{-- <span id="tdatepik" class="t-check-in"></span> --}}
                             {{-- <span class="t-check-out"></span> --}}
                             <?php
                             $query = $_SERVER['QUERY_STRING'];
-                            $url=$query;
-                            $checkout=substr($url,-10);
-                            $maparray['checkout_date']=$checkout;
+                            $url = $query;
+                            $checkout = substr($url, -10);
+                            $maparray['checkout_date'] = $checkout;
                             // dump($maparray['checkout_date']);
 
 
@@ -71,15 +78,31 @@
                                     $today = date("Y-m-d H:i");
                                     $startday = date("Y-m-d", strtotime("+1 day"));
                                   }
+
                                   //
                                   $endday = date("Y-m-d", strtotime($makestr));
                                   // dump($maparray['checkin_date'],$maparray['checkout_date']);
                                 }
                                   $place_hold = '<i class="fa fa-arrow-right" aria-hidden="true"></i>'." Check-in";
                             @endphp
-                          <input placeholder="⇉ Check-in" class="cal_style" type="text" onfocus="(this.type='date')" id="t_start" name="t_start" min='{{ $startday }}' max='{{ $endday }}' required>
-                           <input placeholder="⇉ Check-Out" class="cal_style" type="text" onfocus="(this.type='date')" id="searchdate_numberofdays" name="t_end" min='{{ $maparray['checkin_date'] }}' max='{{ $endday }}' required>
-                          {{-- <input class="cal_style" placeholder="DD/MM/YYYY" type="date" id="t_start" name="t_start" min='{{ $startday }}' max='{{ $endday }}'> --}}
+
+                            @csrf
+                            <input type="date" class="form-control" onchange="startDatejsfunc()" id="t_start"
+                                   name="t_start"
+                                   style=" margin-right: 5px; width: 30%;" value="{{ $startday }}" min='{{ $startday }}'
+                                   max='{{ $endday }}' required/>
+
+                            <input type="date" class="form-control" id="searchdate_numberofdays" name="t_end"
+                                   style="margin-right: 5px; width: 30%;"
+                                   value="{{ $startday }}" min='{{ $startday }}' max='{{ $endday }}' required/>
+
+                            <script>
+                                function startDatejsfunc() {
+                                    var minToDate = document.getElementById("t_start").value;
+                                    document.getElementById("searchdate_numberofdays").value = minToDate;
+                                    document.getElementById("searchdate_numberofdays").setAttribute("min", minToDate);
+                                }
+                            </script>
 
                             <?php
                             //  if(Auth::user()):
@@ -93,21 +116,20 @@
                             ?>
 
                             @isset($maparray['err_msg'])
-                                <span id="errormsg_txt" style="color:red;"> {{ __('You can book maximum') }} {{ $maparray["set_admin"]->max_no_days }} {{ __('days') }}.</span><br>
+                                <span id="errormsg_txt"
+                                      style="color:red;"> {{ __('You can book maximum') }} {{ $maparray["set_admin"]->max_no_days }} {{ __('days') }}.</span>
+                                <br>
                             @endisset
-                          <span id="errormsg_txt" style="color:red;display:none;"> {{ __('Arrival day is not selected') }}. </span><br>
+                            <span id="errormsg_txt" style="color:red;display:none;"> {{ __('Arrival day is not selected') }}. </span><br>
                         </div>
-
-
-
 
 
                         <div class="col-sm-4">
-                          <button id="src_sm_btn" type="submit" class="btn btn-success">{{ __('Update Map') }}
+                            <button id="src_sm_btn" type="submit" class="btn btn-success">{{ __('Update Map') }}
 
-                          </button>
+                            </button>
                         </div>
-                      </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -119,12 +141,13 @@
         <div class="row">
             <div class="offset-sm-3 col-sm-8 offset-sm-1 col-12">
                 <center>
-{{--                    {{dd($maparray['checkin_date'])}}--}}
+                    {{--                    {{dd($maparray['checkin_date'])}}--}}
                     @isset($maparray['checkin_date'])
                         <span><strong>{{ __('Choose Your Place Here') }}</strong></span>
                     @endisset
-                    <div class="containersmallmap" >
-                        <img id="baseMapimgStyle" src="{{ asset('images/maps/'.$maparray["map_name"].'.jpg') }}" alt="Workplace" usemap="#workmap" height="600px" width="800px">
+                    <div class="containersmallmap">
+                        <img id="baseMapimgStyle" src="{{ asset('images/maps/'.$maparray["map_name"].'.jpg') }}"
+                             alt="Workplace" usemap="#workmap" height="600px" width="800px">
                         @if (isset($maparray['checkin_date']))
                             @isset($maparray['places'])
                                 @php
@@ -134,34 +157,40 @@
 
                                     @if ($place->status==0)
                                         {{-- menually control colors for links for green --}}
-                                        <a href="{{ route('user.createbooking',  ['place_id' => $place->place_id, 'checkin' => $maparray['checkin_date'], 'checkout' => $maparray['checkout_date'], 'error_msg' => 0]) }}" class="mapmarkgrcls" id="{{ 'mapmarkgr'.$ind }}" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                                        <a href="{{ route('user.createbooking',  ['place_id' => $place->place_id, 'checkin' => $maparray['checkin_date'], 'checkout' => $maparray['checkout_date'], 'error_msg' => 0]) }}"
+                                           class="mapmarkgrcls" id="{{ 'mapmarkgr'.$ind }}"
+                                           style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
 
                                         <script>
-                                            if(window.screen.width<768){
-                                                document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
-                                                document.getElementById("{{ 'mapmarkgr'.$ind }}").style.top = "{{ $place->co_ys-5 }}"+"px";
+                                            if (window.screen.width < 768) {
+                                                document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}" + "px";
+                                                document.getElementById("{{ 'mapmarkgr'.$ind }}").style.top = "{{ $place->co_ys-5 }}" + "px";
                                             }
                                         </script>
                                     @endif
                                     @if ($place->status== -1)
                                         {{-- menually control colors for links --}}
-                                        <a onclick="return false;" href="" id="{{ 'mapmarkgy'.$ind }}" class="mapmarkgycls" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                                        <a onclick="return false;" href="" id="{{ 'mapmarkgy'.$ind }}"
+                                           class="mapmarkgycls"
+                                           style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
 
                                         <script>
-                                            if(window.screen.width<768){
-                                                document.getElementById("{{ 'mapmarkgy'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
-                                                document.getElementById("{{ 'mapmarkgy'.$ind }}").style.top = "{{ $place->co_ys-5 }}"+"px";
+                                            if (window.screen.width < 768) {
+                                                document.getElementById("{{ 'mapmarkgy'.$ind }}").style.left = "{{ $place->co_xs-10 }}" + "px";
+                                                document.getElementById("{{ 'mapmarkgy'.$ind }}").style.top = "{{ $place->co_ys-5 }}" + "px";
                                             }
                                         </script>
                                     @endif
                                     @if ($place->status==2)
                                         {{-- menually control colors for links --}}
-                                        <a onclick="return false;" href="" id="{{ 'mapmarkred'.$ind }}" class="mapmarkredcls" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                                        <a onclick="return false;" href="" id="{{ 'mapmarkred'.$ind }}"
+                                           class="mapmarkredcls"
+                                           style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
 
                                         <script>
-                                            if(window.screen.width<768){
-                                                document.getElementById("{{ 'mapmarkred'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
-                                                document.getElementById("{{ 'mapmarkred'.$ind }}").style.top = "{{ $place->co_ys-5 }}"+"px";
+                                            if (window.screen.width < 768) {
+                                                document.getElementById("{{ 'mapmarkred'.$ind }}").style.left = "{{ $place->co_xs-10 }}" + "px";
+                                                document.getElementById("{{ 'mapmarkred'.$ind }}").style.top = "{{ $place->co_ys-5 }}" + "px";
                                             }
                                         </script>
                                     @endif
@@ -177,13 +206,16 @@
                             @endphp
                             @foreach ($maparray['places'] as $place)
                                 @if ($place->status == -1)
-                                    <a onclick="checkinValidation()" href="#" class="mapmarkgycls" id="{{ 'mapmarkgr'.$ind }}" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                                    <a onclick="checkinValidation()" href="#" class="mapmarkgycls"
+                                       id="{{ 'mapmarkgr'.$ind }}"
+                                       style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
                                     <script>
-                                        if(window.screen.width<768){
-                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
-                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.top = "{{ $place->co_ys-5 }}"+"px";
+                                        if (window.screen.width < 768) {
+                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}" + "px";
+                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.top = "{{ $place->co_ys-5 }}" + "px";
                                         }
-                                        function checkinValidation(){
+
+                                        function checkinValidation() {
                                             document.getElementById("t_start").style.borderColor = "red";
                                             document.getElementById("errormsg_txt").style.display = "block";
 
@@ -191,14 +223,16 @@
 
                                     </script>
                                 @else
-                                    <a onclick="checkinValidation()" href="#" class="mapmarkgrcls" id="{{ 'mapmarkgr'.$ind }}" style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
+                                    <a onclick="checkinValidation()" href="#" class="mapmarkgrcls"
+                                       id="{{ 'mapmarkgr'.$ind }}"
+                                       style="left: {{ $place->co_xl-15 }}px; top:{{ $place->co_yl-5 }}px;">{{ $place->place_id }}</a>
                                     <script>
-                                        if(window.screen.width<768){
-                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}"+"px";
-                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.top = "{{ $place->co_ys-5 }}"+"px";
+                                        if (window.screen.width < 768) {
+                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.left = "{{ $place->co_xs-10 }}" + "px";
+                                            document.getElementById("{{ 'mapmarkgr'.$ind }}").style.top = "{{ $place->co_ys-5 }}" + "px";
                                         }
 
-                                        function checkinValidation(){
+                                        function checkinValidation() {
                                             document.getElementById("t_start").style.borderColor = "red";
                                             document.getElementById("errormsg_txt").style.display = "block";
 
