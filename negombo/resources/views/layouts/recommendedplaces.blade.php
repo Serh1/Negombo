@@ -96,25 +96,25 @@
 
               @if (strtotime($maparray['set_admin']->hi_season_start)<=strtotime("today") && strtotime($maparray['set_admin']->hi_season_end)>=strtotime("today"))
                 <span>1 {{ __('Adult') }}: {{ $maparray['set_admin']->adult1_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>2 {{ __('Adult') }}: {{ $maparray['set_admin']->adult2_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>3 {{ __('Adult') }}: {{ $maparray['set_admin']->adult3_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>4 {{ __('Adult') }}: {{ $maparray['set_admin']->adult4_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br><br>
+                <span>2 {{ __('Adults') }}: {{ $maparray['set_admin']->adult2_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>3 {{ __('Adults') }}: {{ $maparray['set_admin']->adult3_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>4 {{ __('Adults') }}: {{ $maparray['set_admin']->adult4_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br><br>
                 <span>1 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult1_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>2 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult2_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>3 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult3_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>4 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult4_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>2 {{ __('Adults')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult2_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>3 {{ __('Adults')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult3_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>4 {{ __('Adults')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->adult4_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
               @else
                 <span>1 {{ __('Adult') }}: {{ $maparray['set_admin']->lw_adult1_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>2 {{ __('Adult') }}: {{ $maparray['set_admin']->lw_adult2_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>3 {{ __('Adult') }}: {{ $maparray['set_admin']->lw_adult3_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>4 {{ __('Adult') }}: {{ $maparray['set_admin']->lw_adult4_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>2 {{ __('Adults') }}: {{ $maparray['set_admin']->lw_adult2_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>3 {{ __('Adults') }}: {{ $maparray['set_admin']->lw_adult3_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>4 {{ __('Adults') }}: {{ $maparray['set_admin']->lw_adult4_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
                 <span>1 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult1_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>2 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult2_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>3 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult3_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
-                <span>4 {{ __('Adult')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult4_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>2 {{ __('Adults')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult2_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>3 {{ __('Adults')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult3_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
+                <span>4 {{ __('Adults')." & 1 ".__('Baby') }}: {{ $maparray['set_admin']->lw_adult4_1baby_price }} <i class="fa fa-eur" aria-hidden="true"></i></span><br>
               @endif
               <br>
-              <a href="/negombo-master/viewplaces/{{ $map->map_name }}"><strong style="color:white;">{{ __('Prenota subito!') }}</strong></a>
+              <a href="/negombo-master/viewplaces/{{ $map->map_name }}"><strong style="color:white;">{{ __('Book now!') }}</strong></a>
             </div>
           </div>
         </div>
