@@ -29,53 +29,22 @@
                                 <div class="col-md-6">
                                     <div class="container11">
                                         <div style="display:flex;">
-                                            <?php
+                                            <?php 
                                             $makestr = '+365 day';
                                             $startday = date("Y-m-d");
                                             $endday = date("Y-m-d", strtotime($makestr));
-
-
                                             ?>
-                                            {{--                                            <input min="{{$startday}}" style="margin-right: 10px;"--}}
-                                            {{--                                                   placeholder="DD/MM/YYYY" type="date" id="searchdate_numberofdays"--}}
-                                            {{--                                                   name="t_start">--}}
-                                            {{--                                            <input min="{{$startday}}" id="searchdate_numberofdays" name="t_end"--}}
-                                            {{--                                                   type="date" placeholder="DD/MM/YYYY" onchange="refresh">--}}
-                                            <input type="date" class="form-control" onchange="startDatejsfunc()"
-                                                   id="fDate" name="startDate" min="{{ $startday }}"
-                                                   style=" margin-right: 5px; width: 40%;" value="{{ $startday }}"/>
-                                            <input type="date" class="form-control"  id="tDate" name="endDate"
-                                                   style="margin-right: 5px; width: 40%;" min="{{ $startday }}"
-                                                   value="{{ $startday }}" onchange="checkAvailablePlaces()"/>
-                                            <script>
-                                                function startDatejsfunc() {
-                                                    var minToDate = document.getElementById("fDate").value;
-                                                    document.getElementById("tDate").value = minToDate;
-                                                    document.getElementById("tDate").setAttribute("min", minToDate);
-                                                }
-                                            </script>
-                                            <script>
-                                                function checkAvailablePlaces() {
-                                                    @foreach($places_name as $place)
-                                                        $temp_book = new TempBooking;
-                                                    if (!($temp_book => isBusy($place['id'], $startday))) {
-                                                        $bookings_exits = Booking::where('place_id', $place_id);
-                                                    }
-                                                    @endforeach
-                                                }
-                                            </script>
+                                            <input min="{{$startday}}"style="margin-right: 10px;" placeholder="DD/MM/YYYY" type="date" id="searchdate_numberofdays" name="t_start"> 
+                                            <input min="{{$startday}}" id="searchdate_numberofdays" name="t_end" type="date" placeholder="DD/MM/YYYY">
+                                            </div>
 
+                                            @isset($maparray['err_msg'])
+                                                <span id="errormsg_txt"
+                                                    style="color:red;"> {{ __('You can book maximum') }} {{ $maparray["set_admin"]->max_no_days }} {{ __('days') }}.</span>
+                                                <br>
+                                            @endisset
+                                            <span id="errormsg_txt" style="color:red;display:none;"> {{ __('Arrival day is not selected') }}. </span><br>
                                         </div>
-
-                                        @isset($maparray['err_msg'])
-                                            <span id="errormsg_txt"
-                                                  style="color:red;"> {{ __('You can book maximum') }} {{ $maparray["set_admin"]->max_no_days }} {{ __('days') }}.</span>
-                                            <br>
-                                        @endisset
-                                        <span id="errormsg_txt" style="color:red;display:none;"> {{ __('Arrival day is not selected') }}. </span><br>
-
-
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
