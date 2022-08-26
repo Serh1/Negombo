@@ -51,7 +51,7 @@
                                                 function startDatejsfunc() {
                                                     var minToDate = document.getElementById("fDate").value;
                                                     document.getElementById("tDate").value = minToDate;
-                                                    document.getElementById("tDate").setAttribute("min", minToDate);
+                                                     document.getElementById("tDate").setAttribute("min", minToDate);
                                                 }
                                             </script>
                                             <script>
